@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/crud/view', [UserController::class, 'view']);
+Route::post('/crud/login', [UserController::class, 'login']);

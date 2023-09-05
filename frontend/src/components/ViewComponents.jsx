@@ -35,13 +35,15 @@ const ViewComponents = () => {
               </tr>
             ) : (users &&
               users.map((user) => {
-                return  <tr key={user.id}>
-                          <td>{user.id}</td>
-                          <td>{user.name}</td>
-                          <td>{user.created_at}</td>
-                          <td>{user.updated_at}</td>
-                          <td><button>For UserID: {user.id}</button></td>
-                        </tr>
+                return(
+                  <tr key={user.id}>
+                    <td>{user.id}</td>
+                    <td>{user.name}</td>
+                    <td>{user.created_at}</td>
+                    <td>{user.updated_at}</td>
+                    <td><button>For UserID: {user.id}</button></td>
+                  </tr>
+                )
             }))
           }
         </tbody>
