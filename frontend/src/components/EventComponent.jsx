@@ -7,7 +7,7 @@ const EventComponent = () => {
         alert(`${buttonId} is clicked!`)
     }
 
-    const [allValue, setAllValue] = useState(0)
+    const [allValue, setAllValue] = useState("")
     const handleChange = (e) => {
         setAllValue(e.target.value)
         // console.log(`${e.target.id} = ${e.target.value}`)
