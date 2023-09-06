@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ItemController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/crud/view', [UserController::class, 'view']);
 Route::post('/crud/login', [UserController::class, 'login']);
+
+
+// ITEM ROUTES
+Route::get('/view', [ItemController::class, 'view']);
+Route::post('/create', [ItemController::class, 'create']);
+Route::patch('/edit', [ItemController::class, 'edit']);
+Route::delete('/delete', [ItemController::class, 'delete']);
