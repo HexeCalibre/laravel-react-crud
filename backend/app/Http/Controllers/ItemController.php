@@ -13,7 +13,7 @@ class ItemController extends Controller
     }
 
     public function create(Request $request){
-        $description = $this->input('description');
+        $description = $request->input('description');
 
         $create = Item::insert($description);
 
@@ -26,13 +26,11 @@ class ItemController extends Controller
     }
 
     public function edit(Request $request){
-        $data = [
-            "id" => $request->input('id'),
-            "description" => $request->input('description')
-        ]
+        $id = $request->input('id');
+        $description = $request->input('description');
 
-        $edit = Item::where('id' => $data.id)
-        ->update(['description' => $data.description]);
+        $edit = Item::where('id', '=', $id)
+        ->update(['description', '=', $description]);
 
         if($edit){
             return response(200)->with('message', 'Record updated');
@@ -44,7 +42,7 @@ class ItemController extends Controller
     public function delete(Request $request){
         $data = $request->input('id');
         
-        $delete = Item::where('id', $data)->delete();
+        $delete = Item::where('id', '=', $data)->delete();
 
         if($delete){
             return response(200)->with('message', 'Record deleted');
