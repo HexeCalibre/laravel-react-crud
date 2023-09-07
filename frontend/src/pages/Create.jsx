@@ -42,4 +42,8 @@ const Create = () => {
   )
 }
 
+<<<<<<< HEAD
 export default Create
+=======
+export default Create
+>>>>>>> 7c2940b7eefce6667fa69805a5bd6cc941fbf27b
