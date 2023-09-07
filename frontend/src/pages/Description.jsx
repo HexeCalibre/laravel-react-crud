@@ -6,8 +6,14 @@ import { useParams } from 'react-router-dom'
 const Description = () => {
     const {id} = useParams()
     const [ description, setDescription] = useState([])
+
+    const handleChange = (e) => {
+        setDescription(e.target.value)
+    }
+
     useEffect((e) => {
         const url = `${import.meta.env.VITE_API_URL}/description/${id}`
+        const controller = new AbortController();
         const requestOptions = {
             method: 'GET',
             headers: {
@@ -23,20 +29,17 @@ const Description = () => {
         .catch((err) => console.log(err))
     }, [])
 
-    const handleChange = (e) => {
-
-    }
+    
   return (
     <>
-        <h1>Description</h1>
+        <h1>Edit Description</h1>
         {
-            description.map(
-                (e) => (
-                    <p key={e.id}>
-                        <input type="text" name="description" value={e.description} onChange={handleChange} />
-                    </p>
-                )
-            )
+            description.map((items) => (
+                <p key={items.id}>
+                    <input type="text" name="description" value={items.description} onChange={handleChange} />
+                    <button type="submit">Save</button>
+                </p>
+            ))
         }
     </>
   )
