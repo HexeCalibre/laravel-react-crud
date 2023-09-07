@@ -9,6 +9,8 @@ const PageLinks = () => {
             <li><a href="/clickcount">Click Count</a></li>
             <li><a href="/events">Events</a></li>
             <li><a href="/welcome">Welcome</a></li>
+            <li><a href="/useeffect">Use Effect</a></li>
+            <li><a href="/userlist">User List</a></li>
         </ul>
     </>
   )

@@ -11,8 +11,7 @@ const WelcomeComponent = () => {
     })
 
     const handleChange = (e) => {
-        const name = e.target.name
-        const value = e.target.value
+        const {name, value} = e.target
         setData(prev => {
             return {...prev, [name]: value }
         })
@@ -28,6 +27,7 @@ const WelcomeComponent = () => {
 
     const handleClick = (e) => {
         setMessage(`Hi ${data.firstName} ${data.lastName}!`)
+        // setData({firstName: "Alvin", lastName: "Castor"})
     }
   return (
     <>
