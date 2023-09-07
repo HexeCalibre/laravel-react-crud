@@ -4,15 +4,32 @@ import { useState } from 'react';
 
 const ViewComponents = () => {
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
-    setLoading(true)
-    fetch('http://localhost:8000/api/crud/view')
-    .then((res) => res.json())
-    .then((users) => setUsers(users))
-    setLoading(false)
-  }, [])
+    const url = `${import.meta.env.VITE_API_URL}/crud/view`
+    const controller = new AbortController()
 
+    const requestOptions = {
+      signal: controller.signal,
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    
+    setLoading(true)
+    fetch(url, requestOptions)
+    .then((response) => response.json())
+    .then((json) => {
+      setUsers(json)
+      setLoading(false)
+    })
+    .catch((err) => console.log(err))
+    
+    return () => {
+      controller.abort()
+    }
+  }, [])
   return (
     <>
       <h1>View Page</h1>
@@ -41,7 +58,7 @@ const ViewComponents = () => {
                     <td>{user.name}</td>
                     <td>{user.created_at}</td>
                     <td>{user.updated_at}</td>
-                    <td><button>For UserID: {user.id}</button></td>
+                    <td><a href="/viewuser/{user.id}">For UserID: {user.id}</a></td>
                   </tr>
                 )
             }))

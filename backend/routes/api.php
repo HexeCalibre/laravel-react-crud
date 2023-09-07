@@ -27,6 +27,7 @@ Route::post('/crud/login', [UserController::class, 'login']);
 
 // ITEM ROUTES
 Route::get('/view', [ItemController::class, 'view']);
+Route::get('/description/{id}', [ItemController::class, 'description']);
 Route::post('/create', [ItemController::class, 'create']);
 Route::patch('/edit', [ItemController::class, 'edit']);
 Route::delete('/delete', [ItemController::class, 'delete']);

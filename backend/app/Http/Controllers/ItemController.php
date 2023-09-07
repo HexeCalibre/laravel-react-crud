@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class ItemController extends Controller
 {
@@ -15,15 +16,26 @@ class ItemController extends Controller
     public function create(Request $request){
         $description = $request->input('description');
 
-        $create = Item::insert($description);
+        $description = htmlspecialchars($description);
+
+        $create = Item::insert([
+            'description' => $description,
+        ]);
 
         if($create){
-            return response(200)->with('message', 'Record Saved');
+            return ('Record Saved');
         }else{
-            return response(500)->with('message', 'Failed to save record');
+            return ('Failed to save record');
         }
 
     }
+
+    public function description($id){
+        $data = Item::where('id', '=', $id)->get();
+        // $data = json_encode($data);
+        return response()->json($data);
+    }
+
 
     public function edit(Request $request){
         $id = $request->input('id');
