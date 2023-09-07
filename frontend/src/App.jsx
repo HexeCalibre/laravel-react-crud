@@ -9,6 +9,7 @@ import UseEffectComponent from "./components/UseEffectComponent.jsx";
 import UserList from "./pages/UserList.jsx";
 import View from "./pages/View.jsx";
 import Create from "./pages/Create.jsx";
+import Description from "./pages/Description.jsx";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="userlist" element={<UserList />} />
             <Route path="view" element={<View />} />
             <Route path="create" element={<Create />} />
+            <Route path="description/:id" element={<Description />} />
           </Route>
         </Routes>
       </BrowserRouter>
