@@ -30,6 +30,12 @@ class ItemController extends Controller
 
     }
 
+    public function description($id){
+        $data = Item::where('id', '=', $id)->get();
+        // $data = json_encode($data);
+        return response()->json($data);
+    }
+
 
     public function edit(Request $request){
         $id = $request->input('id');
