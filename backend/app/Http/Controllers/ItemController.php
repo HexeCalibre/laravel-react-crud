@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
 {
@@ -37,12 +38,12 @@ class ItemController extends Controller
     }
 
 
-    public function edit(Request $request){
-        $id = $request->input('id');
+    public function edit(Request $request, $id){
         $description = $request->input('description');
 
-        $edit = Item::where('id', '=', $id)
-        ->update(['description', '=', $description]);
+        $edit = DB::table('items')
+            ->where('id', $id)
+            ->update(['description' => $description]);
 
         if($edit){
             return response(200)->with('message', 'Record updated');
