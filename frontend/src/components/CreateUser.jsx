@@ -11,7 +11,11 @@ const CreateUser = () => {
     }
 
     const handleSubmit = (e) => {
-        alert('Form Submitted')
+        e.preventDefault()
+        const requestOptions = {
+            method: "POST",
+            "Content-Type": "application/json"
+        }
     }
   return (
     <>
