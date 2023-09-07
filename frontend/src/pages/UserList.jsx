@@ -5,6 +5,7 @@ const UserList = () => {
 
     useEffect(() => {
         const url = `${import.meta.env.VITE_API_URL}/crud/view`
+
         const requestOptions = {
             method: 'GET',
             headers: {
