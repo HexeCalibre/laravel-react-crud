@@ -7,6 +7,8 @@ import PageLinks from "./parts/PageLinks.jsx";
 import CreateUser from "./components/CreateUser.jsx";
 import UseEffectComponent from "./components/UseEffectComponent.jsx";
 import UserList from "./pages/UserList.jsx";
+import Create from "./pages/Create.jsx";
+import Login from "./components/Login.jsx";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
             <Route path="createnewuser" element={<CreateUser />} />
             <Route path="useeffect" element={<UseEffectComponent />} />
             <Route path="userlist" element={<UserList />} />
+            <Route path="create" element={<Create />} />
+            <Route path="login" element={<Login />} />
           </Route>
         </Routes>
       </BrowserRouter>
