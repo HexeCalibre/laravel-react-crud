@@ -13,6 +13,7 @@ const PageLinks = () => {
             <li><a href="/userlist">User List</a></li>
             <li><a href="/view">View</a></li>
             <li><a href="/create">Create</a></li>
+            <li><a href="/create-test">Create Test</a></li>
         </ul>
     </>
   )
