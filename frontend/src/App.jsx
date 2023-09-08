@@ -19,11 +19,11 @@ function App() {
         <Routes>
           <Route>
             <Route index element={<ViewComponent />} />
-            <Route path="events" element={<Events />} />
-            <Route path="clickcount" element={<ClickCount />} />
-            <Route path="welcome" element={<Welcome />} />
+            {/* <Route path="events" element={<Events />} /> */}
+            {/* <Route path="clickcount" element={<ClickCount />} /> */}
+            {/* <Route path="welcome" element={<Welcome />} /> */}
             <Route path="createnewuser" element={<CreateUser />} />
-            <Route path="useeffect" element={<UseEffectComponent />} />
+            {/* <Route path="useeffect" element={<UseEffectComponent />} /> */}
             <Route path="userlist" element={<UserList />} />
             <Route path="view" element={<View />} />
             <Route path="create" element={<Create />} />
