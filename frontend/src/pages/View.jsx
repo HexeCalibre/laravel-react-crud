@@ -39,6 +39,7 @@ const View = () => {
                                 <td>{e.id}</td>
                                 <td>{e.description}</td>
                                 <td><a href={(`/description/${e.id}`)}>Edit</a></td>
+                                <td><a href="#">Delete</a></td>
                             </tr>
                         )
                     )
