@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Component's Name
 const CreateTest = () => {
@@ -11,10 +12,11 @@ const CreateTest = () => {
   };
 
   // Button Add Description
-  // Tester if button everything is working
+  // Tester button if everything is working
   const [message, setMessage] = useState("");
   const handleClick = () => {
     alert(`Button Clicked`);
+    console.log(`New Description Added: ${description}`);
     setMessage(`${description}`);
   };
 
@@ -22,15 +24,17 @@ const CreateTest = () => {
     <>
       <h2>Create Description</h2>
       {/* <form> */}
-        <input
-          type="text"
-          name="description"
-          placeholder="type description here"
-          onChange={descriptionHandleChange}
-          required
-        />
-        <button onClick={handleClick}>Add</button> 
-        <p>New Description Added: {message}</p>
+      <input
+        type="text"
+        name="description"
+        placeholder="type description here"
+        onChange={descriptionHandleChange}
+        required
+      />
+      <button type="submit" onClick={handleClick}>
+        Save
+      </button>
+      <p>New Description Added: {message}</p>
       {/* </form> */}
     </>
   );
