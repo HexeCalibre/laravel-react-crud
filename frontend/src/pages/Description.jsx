@@ -5,7 +5,10 @@ import { useParams } from 'react-router-dom'
 
 const Description = () => {
     const {id} = useParams()
-    const [ description, setDescription] = useState([])
+    const [ description, setDescription] = useState({
+        id: 0,
+        description: ""
+    })
 
     const handleChange = (e) => {
         setDescription(e.target.value)
@@ -23,7 +26,7 @@ const Description = () => {
 
         fetch(url, requestOptions)
         .then((response) => response.json())
-        .then(json => {
+        .then((json) => {
             setDescription(json)
         })
         .catch((err) => console.log(err))
@@ -33,6 +36,8 @@ const Description = () => {
   return (
     <>
         <h1>Edit Description</h1>
+        <div>
+            {items.description}
         {
             description.map((items) => (
                 <p key={items.id}>
@@ -41,6 +46,7 @@ const Description = () => {
                 </p>
             ))
         }
+        </div>
     </>
   )
 }
