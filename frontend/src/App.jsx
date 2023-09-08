@@ -29,7 +29,7 @@ function App() {
             <Route path="view" element={<View />} />
             <Route path="create" element={<Create />} />
             <Route path="description/:id" element={<Description />} />
-            <Route path="create-test" element={<CreateTest />} />
+            {/* <Route path="create-test" element={<CreateTest />} /> */}
           </Route>
         </Routes>
       </BrowserRouter>
