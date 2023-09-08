@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
@@ -52,15 +51,15 @@ class ItemController extends Controller
         }
     }
 
-    public function delete(Request $request){
+    public function delete(Request $request, $id){
         $data = $request->input('id');
-        
-        $delete = Item::where('id', '=', $data)->delete();
+        // $delete = DB::delete("delete from items where id='$id'");
+        $delete = DB::table('items')->delete('delete from items')->where('id', $id);
 
         if($delete){
-            return response(200)->with('message', 'Record deleted');
+            return 'deleted';
         }else{
-            return response(500)->with('message', 'Failed to delete record');
+            return 'failed';
         }
     }
 }

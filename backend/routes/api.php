@@ -30,4 +30,4 @@ Route::get('/view', [ItemController::class, 'view']);
 Route::get('/description/{id}', [ItemController::class, 'description']);
 Route::post('/create', [ItemController::class, 'create']);
 Route::patch('/edit/{id}', [ItemController::class, 'edit']);
-Route::delete('/delete', [ItemController::class, 'delete']);
+Route::delete('/delete/{id}', [ItemController::class, 'delete']);
